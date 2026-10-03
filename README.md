@@ -21,5 +21,9 @@ while R&D's attrition rate is actually the lowest at 13.8%.
 This shows that raw attrition counts can be misleading — rate-based analysis 
 gives a more accurate picture of where employee retention issues are concentrated.
 
+## Power BI Dashboard
+
+Extended the SQL analysis into an interactive Power BI dashboard with three visuals: a total employee count card, an overall attrition rate pie chart, and a department-wise attrition bar chart comparing Research & Development, Sales, and Human Resources.
+
 ## Files
 - SQL_Project_Results.xlsx — contains all query results
