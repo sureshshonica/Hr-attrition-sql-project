@@ -1,29 +1,34 @@
-# HR Attrition SQL Project
+# HR Employee Attrition Analysis
 
 ## Overview
-Analysis of IBM HR Employee Attrition dataset using SQL to identify attrition patterns across departments.
+An end-to-end analysis of the IBM HR Employee Attrition dataset (1,470 employee records), completed in three stages: SQL for querying, Power BI for dashboarding, and Excel for pivot-table analysis. The goal was to find which departments lose the most employees and to compare them fairly using attrition rates instead of raw counts.
 
 ## Tools Used
-- SQLite (SQLite Online)
-- Excel (for storing results)
+- SQL (SQLite Online): querying and aggregation
+- Power BI Desktop: interactive dashboard
+- Microsoft Excel: pivot table, pivot chart and rate calculation
+- GitHub: project documentation
 
 ## Key Queries
-- Employee count by department
-- Attrition count by department
-- Average age by department
-- Department-wise employee breakdown
+-- Employees per department
+SELECT Department, COUNT(*) FROM HRE GROUP BY Department;
 
-## Key Insight
-While Research & Development had the highest total number of employees leaving (133), 
-it also has the largest headcount (961 employees). When measured as a percentage, 
-Sales has the highest attrition rate at 20.6%, followed by HR at 19.0%, 
-while R&D's attrition rate is actually the lowest at 13.8%. 
-This shows that raw attrition counts can be misleading — rate-based analysis 
-gives a more accurate picture of where employee retention issues are concentrated.
+-- Attrition count per department
+SELECT Department, COUNT(*) FROM HRE WHERE Attrition = 'Yes' GROUP BY Department;
+
+-- Average age per department
+SELECT Department, AVG(Age) FROM HRE GROUP BY Department;
 
 ## Power BI Dashboard
+A dashboard with three visuals: a total employee count card, an overall attrition pie chart, and a department-wise attrition bar chart.
 
-Extended the SQL analysis into an interactive Power BI dashboard with three visuals: a total employee count card, an overall attrition rate pie chart, and a department-wise attrition bar chart comparing Research & Development, Sales, and Human Resources.
+## Excel Analysis
+A pivot table and pivot chart comparing attrition by department, plus an attrition rate calculation (Yes ÷ Total).
 
-## Files
-- SQL_Project_Results.xlsx — contains all query results
+## Key Insight
+Research & Development has the highest attrition count (133 of 961), but the lowest attrition rate (13.8%). Sales has the highest rate (20.6%, 92 of 446), followed by Human Resources (19.0%, 12 of 63). Overall attrition is 16.1% (237 of 1,470). Comparing rates instead of raw counts shows where the real retention problem is.
+
+## Files in this Repository
+- sql project result.xlsx: SQL query results
+- HR_Attrition_Dashboard.pdf: Power BI dashboard
+- HR_Attrition_Excel.xlsx: Excel pivot analysis
